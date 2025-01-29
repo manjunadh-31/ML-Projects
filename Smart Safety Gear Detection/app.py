@@ -19,8 +19,8 @@ safety_gear_classes = [
 
 # Twilio setup for sending WhatsApp alerts
 def send_alert(missing_items):
-    account_sid = 'AC8ee95b70767f5f8741c8edbdf66fa124'
-    auth_token = 'a9ac877af27c4a5400889f1f806e9e8b'
+    account_sid = '*****' # replace **  your twilo account id
+    auth_token = '******' # replace ** your twilo account token
     client = Client(account_sid, auth_token)
 
     # Generate a random employer ID for this alert
@@ -29,9 +29,9 @@ def send_alert(missing_items):
     message_body = f"Alert: Missing safety gear detected for Employer ID {employer_id}. Missing items: {missing_items_str}"
 
     client.messages.create(
-        from_='whatsapp:+14155238886',
+        from_='whatsapp:+*********', # replace ** with given whatsapp number
         body=message_body,
-        to='whatsapp:+919159759423'
+        to='whatsapp:+91*********' # replace ** with your mobile number
     )
 
     st.write(f"Alert sent to supervisor! Employer ID: {employer_id}, Missing items: {missing_items_str}")
